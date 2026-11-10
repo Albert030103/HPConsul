@@ -1,0 +1,11 @@
+# -FrontPage-
+
+
+
+<Limit GET POST PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName hingepointconsulting.com
+AuthUserFile /home/hingepo1/public_html/_vti_pvt/service.pwd
+AuthGroupFile /home/hingepo1/public_html/_vti_pvt/service.grp

@@ -1,0 +1,10 @@
+[28-Mar-2026 17:26:46 America/Boise] PHP Fatal error:  Uncaught ValueError: mail(): Argument #3 ($message) must not contain any null bytes in /home3/hingepo1/public_html/send_form_email.php:93
+Stack trace:
+#0 /home3/hingepo1/public_html/send_form_email.php(93): mail('info@hingepoint...', 'From Contact-Us...', 'Form details be...', 'MIME-Version: 1...')
+#1 {main}
+  thrown in /home3/hingepo1/public_html/send_form_email.php on line 93
+[03-Apr-2026 04:01:53 America/Boise] PHP Fatal error:  Uncaught ValueError: mail(): Argument #3 ($message) must not contain any null bytes in /home3/hingepo1/public_html/send_form_email.php:93
+Stack trace:
+#0 /home3/hingepo1/public_html/send_form_email.php(93): mail('info@hingepoint...', 'From Contact-Us...', 'Form details be...', 'MIME-Version: 1...')
+#1 {main}
+  thrown in /home3/hingepo1/public_html/send_form_email.php on line 93

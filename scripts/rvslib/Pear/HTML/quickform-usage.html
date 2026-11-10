@@ -1,0 +1,1282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><!-- Copyright (C) 2006 Tiger Computing Ltd -->
+
+
+
+
+<meta name="author" content="Keith Edmunds">
+<meta name="copyright" content="2004 Tiger Computing Ltd">
+<meta name="keywords" content="Berkshire, berkshire, computing, computer, 
+linux, Linux, consultancy, email, firewall, intranet, it services, hosting, 
+managed IT services, managed services, network, reading, Reading, 
+remote support, server, SME, sme, service provider, support, Thames Valley, 
+thames valley, web hosting, web space, Linux and Windows, linux and windows">
+<meta name="description" content="The Linux Consultancy: Linux for business">
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Expires" content="Tue, 20 Aug 1996 14:25:27 GMT"><title>Tiger Computing Ltd : The Linux Company:</title>
+<link rel="StyleSheet" href="quickform-usage_files/tcl.css" type="text/css" media="screen"></head><body><div id="main">
+      
+<div id="fullpage">
+  <h1>PEAR HTML_QuickForm<br>Getting Started Guide</h1>
+  <h2 class="guide">Contents</h2>
+  <ol>
+    <li><a href="#doc_chap1">Introduction</a>
+    </li><li><a href="#doc_chap2">Getting started</a>
+    </li><li><a href="#doc_chap3">Practical Examples</a>
+    </li><li><a href="#doc_chap4">Rules and Filters</a>
+    </li><li><a href="#doc_chap5">Defaults, Constants and processing</a>
+    </li><li><a href="#doc_chap6">Miscellaneous</a>
+    </li><li><a href="#doc_chap7">Reference: elements</a>
+  </li></ol>
+  <h3 class="guide">A note from the author</h3>
+  <p>
+
+  I hope you find this guide, or tutorial, call it what you will, useful, and I
+  also hope it saves you some time. If you <em>do</em> find
+  it useful, I would be grateful if you could make a donation using the button
+  below (and if it wasn't useful, <a href="mailto:keith@midnighthax.com">mail
+  me</a> and tell me why not).
+
+  </p>
+  <p>
+
+  I receive a great deal of mail as a result of this article, much of it asking
+  me to solve various PEAR/HTML_QuickForm/Smarty problems. Please bear in mind
+  that the money that puts food on my family's table comes from the consultancy
+  work that I do, so here's the deal. If you would like some help with a the
+  points discussed in this article, <a href="mailto:keith@midnighthax.com">mail
+  me</a> and tell me what that help is worth to you. Quote any amount you like,
+  and if I'm able to help you out you can make a PayPal donation by way of
+  thanks. Fair enough?
+
+  </p>
+  <p>
+
+  Thank you<br>
+  Keith Edmunds
+  </p><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  <input name="cmd" value="_s-xclick" type="hidden">
+  <input src="quickform-usage_files/x-click-but21.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" type="image">
+  <input name="encrypted" value="-----BEGIN PKCS7-----
+MIIHHgYJKoZIhvcNAQcEoIIHDzCCBwsCAQExggEwMIIBLAIBADCBlDCBjjELMAkG
+A1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQw
+EgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UE
+AxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJ
+KoZIhvcNAQEBBQAEgYCLUar52TXtItrV4Sum4hiVeW7Ugc+bEBagv6ADk9McTegD
+VJ0f9x2MiFV2F44shPSRNSjh/TuPYB1JGOxXTUmFcmpP28TAIIr59cizHCdZ7Cdi
+DzLXKOlqSENzrE5ZufIztM+JmF4nr0o/GVF14rmIaWhdRWodo1tyFP255l7p0jEL
+MAkGBSsOAwIaBQAwgZsGCSqGSIb3DQEHATAUBggqhkiG9w0DBwQIJlAFmu+zFh2A
+eP6tZNT0xDY7XwButrWl3VlECt2QH9gSyul4C6kXoWKrbr2r7x7YRdMS2se/9Ua4
+k8WyMXb6aAuAi1LEDvjsI4cqfyiq8xEE5WOI0nLT/y42AErmfW1lbRfUW1i43tON
+0bK9acqUE94oMS95ACAvPrN4aHWXM6MyG6CCA4cwggODMIIC7KADAgECAgEAMA0G
+CSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNV
+BAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQL
+FApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYN
+cmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGO
+MQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZp
+ZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREw
+DwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCB
+nzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPug
+oni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+
+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqN
+bvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvs
+ENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEw
+gY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4g
+VmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMx
+ETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29t
+ggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Or
+o4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6z
+ZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1
+sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMC
+VVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQK
+EwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2
+ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoF
+AKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTA0
+MDIyMjE3MzA1OVowIwYJKoZIhvcNAQkEMRYEFMN89CPaavQz366kZ38SNMqj6nbl
+MA0GCSqGSIb3DQEBAQUABIGAL7oIEDd3NCy2A2brQ7mxqibh5iyiZmsfBkemaFzW
+axriIjk7+IauS2KC1xV+X2NUsGNn6i4Q3xt1AV5UiDQ8L3ODvr+yI1krAbqZLlWg
+/XdTLWlselKwZDRflsVFKaBr2LFhPKbnqesYf8p7nasVKQFO8YjNfbM5NSYxR4HW
+sps=
+-----END PKCS7-----" type="hidden">
+</form>
+
+  <h2 class="guide"><a name="doc_chap1">1. </a>Introduction</h2>
+  <h3 class="guide">What this is and what it isn't</h3>
+  <p>
+  
+    This page is a simple introduction to one part of PEAR, HTML_QuickForm. It
+    is by no means exhaustive; in fact, it covers a very small fraction of the
+    total functionality of HTML_QuickForm. It is also not definitive: that role
+    is taken by the source code itself, which is of course always right.
+    However, for the newcomer to PEAR or HTML_QuickForm, the following should
+    be a useful foundation to build upon.
+  
+  </p>
+
+  <h3 class="guide"><a name="doc_chap1_sect2">Pre-requisites</a></h3>
+  <p> 
+
+    It is assumed that you have installed both PHP and PEAR, and that
+    you are familiar with PHP and HTML. Help with PEAR
+    can be found at the <a href="http://pear.php.net/">PEAR
+    website</a>; help with PHP can be found at the <a href="http://php.net/">PHP website</a>. It is also assumed that
+    your PHP scripts are correctly interpreted by your web server. The
+    following script should display a host of information about the
+    environment your web server runs in:
+
+  </p>
+
+  <pre>  &lt;?php
+      phpinfo();
+  ?&gt;</pre>
+
+  <p>
+
+    If, instead, you simply see the code above displayed in your
+    browser window then you need to resolve this problem before
+    proceeding. There are many tutorials setting up PHP on the
+    Internet, and a simple search should find a suitable one.
+
+  </p>
+  <p>
+
+    Finally, it is a good idea to ensure that your PEAR installation is up to
+    date. This can be done with the following command:
+
+  </p>
+
+  <pre>  # Optionally check for upgrades first
+  <span class="input">pear list-upgrades</span>
+  # Upgrade PEAR
+  <span class="input">pear upgrade-all</span></pre>
+  
+  <h2 class="guide"><a name="doc_chap2">2. </a>Getting started</h2>
+  <h3 class="guide"><a name="doc_chap2_sect1">Your first form</a></h3>
+  <p>
+
+    We will start by creating a very simple form. Copy the following code to a
+    file, give it a <code>.php</code> extension, and display it in
+    your browser:
+
+  </p>
+  
+  <pre>  &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+      &lt;title&gt;Testing PEAR HTML_QuickForm&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('header', 'MyHeader', 'Testing QuickForm');
+      $form-&gt;display();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+  
+  <p>
+
+    Loading this file in your browser will simply show the words
+    "Testing QuickForm" in black on a grey background. Not
+    particularly exciting, but this does show that PEAR and
+    QuickForm are installed correctly and working.
+
+  </p>
+  <p>
+  
+  Let's consider the lines individually. The line:
+          
+  </p>
+  
+  <pre>require_once "HTML/QuickForm.php";</pre>
+  
+  <p>
+  
+    loads the class definitions for QuickForm. Next we instantiate an
+    HTML_QuickForm object:
+  
+  </p>
+  
+  <pre>$form = new HTML_QuickForm('frmTest', 'get');</pre>
+  
+  <p>
+  This says that the name of the form is <code>frmTest</code>, and
+  the method used to pass the form variables back to the PHP script
+  will be <code>GET</code>. Of course, in this particular example
+  there are no variables to pass back. By default, the form's
+  <em>action</em> - the URI that will be called when the form is
+  submitted - is the same URI that displayed the form in the first
+  place. This may seem strange at first, but it is actually very
+  useful, as we shall see.
+  </p>
+
+  <p>
+  The line
+  </p>
+
+  <pre>  $form-&gt;addElement('header', 'MyHeader', 'Testing QuickForm');</pre>
+  
+  <p>
+  creates an <em>element</em> on the form. An element is any item which
+  appears on the form. It may be a text box, a select item, plain
+  text, etc. In this case it is a <code>header</code>, a psuedo-element included
+  in QuickForm simply to improve presentation. This element has the
+  name <code>MyHeader</code> and the text value <code>Testing
+  QuickForm</code>.
+  </p>
+
+  <p>
+  Finally, the line
+  </p>
+
+  <pre>$form-&gt;display();</pre>
+  
+  <p>
+  makes it all happen. This displays the form and allows the user to
+  interact with it. Of course, in this example there isn't anything
+  the user can do, so let's create a more complex example.
+  </p>
+          
+  <h2 class="guide"><a name="doc_chap3">3. </a>Practical Examples</h2>
+      
+  <h3 class="guide">A real form</h3>
+
+  <p>
+  Our examples in future will only show the code between the
+  <code>&lt;?php&gt;</code> tags. Consider the following example:
+  </p>
+  
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('header', 'MyHeader', 'Testing QuickForm');
+      $form-&gt;addElement('text', 'MyTextBox', 'What is your name?');
+      $form-&gt;addElement('reset', 'btnClear', 'Clear');
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+      $form-&gt;display();
+  ?&gt;</pre>
+  
+  <p>
+  
+  We've added three new elements: a text box complete with a label, a reset
+  button, and a submit button. The user can type into the text box; the reset
+  button works, but the submit button does not appear to do anything. We'll fix
+  that in  a moment, and later we will show the full syntax for each element
+  that can  be added.
+
+  </p>
+
+  <h3 class="guide">Some theory</h3>
+  
+  <p>
+  
+  <code>HTML_QuickForm</code> introduces the concept of <em>freezing</em>
+  elements of the form. Once an element is frozen it cannot be edited by the
+  user. <code>HTML_QuickForm</code> enforces this by changing how the element is
+  <em>rendered</em>: for example, in the case of a textbox the contents will be
+  rendered simply as text, giving the user no opportunity to edit the text
+  value.
+
+  </p>
+  
+  <p>
+  <code>HTML_QuickForm</code> also introduces the concept of
+  <em>validating</em> a form. A form is considered to be validated when the URI
+  called to display it has one or more parameters (either <code>GET</code> or
+  <code>POST</code> according the to the method used by the form), and
+  all rules (which we will come on to shortly) have been satisfied.
+  </p>
+  <p>
+  Let's see these two concepts in action:
+  </p>
+  
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('header', 'MyHeader', 'Testing QuickForm');
+      $form-&gt;addElement('text', 'MyTextBox', 'What is your name?');
+      $form-&gt;addElement('reset', 'btnClear', 'Clear');
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+      if ($form-&gt;validate()) {
+          # If the form validates then freeze the data
+          $form-&gt;freeze();
+      }
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <p>
+
+  Now, immediately before the form is displayed we attempt to validate it.
+  Remember, for the validation to succeed we need to call it with one or more
+  <code>GET</code> parameters, but when we first call it there are no
+  <code>GET</code> parameters so the validation returns <code>FALSE</code>
+  and the form is not frozen. Finally, the form is displayed.
+  </p>
+  <p>
+
+  Now, however, the submit button does do something. The <code>action</code>
+  parameter of the form is, by default, the URI that displayed the form in 
+  the first place, but we will now have a <code>GET</code> parameter appended as 
+  <code>?MyTextBox=myname&amp;btnSubmit=Submit</code>. This means that
+  the validation will succeed (as there are, at this stage, no validation
+  criteria to satisfy), and thus the form elements are frozen immediately
+  prior to the form being re-displayed. Try it: you'll see that after you
+  have entered a name and clicked on "Submit" the form is repainted, but the
+  textbox has gone and is replaced simply by the text you typed in.
+
+  </p>
+  
+  <h2><a name="doc_chap4">4. </a>Rules and Filters</h2>
+  <h3 class="guide">Checking input</h3>
+  <p>
+  
+  HTML_QuickForm offers the facility to validate user input. By
+  default, fields which are "required" are flagged as such to the user, and
+  in the event that "required" input is missing a customisable error message
+  is displayed. Consider the following:
+  
+  </p>
+  <a name="doc_chap4_pre1"></a>
+
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('header', 'MyHeader', 'Testing QuickForm');
+      $form-&gt;addElement('text', 'MyTextBox', 'What is your name?');
+      $form-&gt;addElement('reset', 'btnClear', 'Clear');
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      $form-&gt;addRule('MyTextBox', 'Your name is required', 'required');
+
+      if ($form-&gt;validate()) {
+          # If the form validates then freeze the data
+          $form-&gt;freeze();
+      }
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <p>
+  Note the extra line, <code>$form-&gt;addRule</code>. This says that the
+  element "MyTextBox" is required (ie, must not be left blank), and that if
+  it is left blank the error message to the user is "Your name is required".
+  </p>
+  <p>
+  If you display the form now you will notice that the user is immediately
+  informed that the name field is a required field. If you click on "Submit"
+  while the name field is empty you will see the error message displayed.
+  Filling in the name field and clicking on "Submit" once again validates,
+  freezes and re-displays the form.
+  </p>
+  <h3 class="guide"><a name="doc_chap4_sect2">Client-side validation</a></h3>
+  <p>
+  In the above example the validation was carried out by the server when the
+  form was submitted. It is possible to have the form rules validated at the
+  client by using Javascript. A small change to the <code>addRule</code> line
+  is all that is required:
+  </p>
+
+  <pre>  $form-&gt;addRule('MyTextBox', 'Your name is required', 'required', '', 'client');</pre>
+
+  <p>
+  In this example, if the validation rules are not satisfied a dialog box is
+  displayed informing the user of the error. Arguably this lacks the clarity
+  of the server-side validation, but it has the advantage of not needing to
+  contact the server before informing the user of any input errors.
+  </p>
+
+  <h3 class="guide"><a name="doc_chap4_sect3">More validation rules</a></h3>
+  <p>
+  "Required" is not the only validation rule available. A full list:
+  </p>
+  <ul>
+  <li>required</li>
+  <li>maxlength</li>
+  <li>rangelength</li>
+  <li>regex</li>
+  <li>email</li>
+  <li>emailorblank</li>
+  <li>lettersonly</li>
+  <li>alphanumeric</li>
+  <li>numeric</li>
+  <li>nopunctuation</li>
+  <li>nonzero</li>
+  </ul>
+
+  <p>
+  Note that some rules (for example, <code>maxlength</code>) take an additional argument:
+  </p>
+
+  <pre>  $form-&gt;addRule('postcode', 'Maximum postcode 8 characters', 'maxlength', 8, 'client');</pre>
+
+  <p>
+  In addition to the above list, it is possible to add user-defined rules.
+  </p>
+
+  <h3 class="guide"><a name="doc_chap4_sect4">Filters</a></h3>
+  <p>
+  In the previous example the validation rule will be satisfied by any input
+  in the text box, including, for example, a single space. This is because
+  the rule simply ensures that there are one or more characters in the
+  textbox, and a space character satisfies the rule.
+  </p>
+  <p>
+  In this particular case what we really want is text string minus any
+  leading and trailing spaces. We could write our own regex to do this, and
+  change our rule to be a "regex" rule, but there is an easier way. The PHP
+  built-in function <code>trim</code> does exactly what we want, and we can arrange to
+  have the contents of the textbox run through <code>trim</code> immediately
+  prior to being validated by using the <code>applyFilter</code> method:
+  </p>
+
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('header', 'MyHeader', 'Testing QuickForm');
+      $form-&gt;addElement('text', 'MyTextBox', 'What is your name?');
+      $form-&gt;addElement('reset', 'btnClear', 'Clear');
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      $form-&gt;addRule('MyTextBox', 'Your name is required', 'required');
+      $form-&gt;applyFilter('MyTextBox', 'trim');
+
+      if ($form-&gt;validate()) {
+          # If the form validates then freeze the data
+          $form-&gt;freeze();
+      }
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <p>
+  If the user now enters only spaces in the textbox and then clicks Submit,
+  the validation will fail because the spaces will be stripped prior to the
+  rule being checked.
+  </p>
+  <p>
+  <code>applyFilter</code> takes two arguments. The first is either the name
+  of an element or the string <code>'__ALL__'</code>, meaning that this filter
+  applies to all elements on the form. Note that there are two underscores both
+  before and after the word ALL. The second argument is either a
+  function, user-defined or built-in, or an array (the array format is not
+  covered here).
+  </p>
+  
+  <h2 class="guide"><a name="doc_chap5">5. </a>Defaults, Constants and processing</h2>
+  <h3 class="guide">Defaults</h3>
+
+  <p>
+  So far we have had no initial values present in the textbox when the form
+  has been displayed. In this section we will look at how initial values, or
+  default values, can be set for a form element. We'll change the example
+  slightly here and assume that our form is being used to edit some
+  information held in a database. We will use static arrays to represent the
+  data retrieved from the database in order not to complicate the examples
+  with the database code.
+  </p>
+  <p>
+  In this example we are going to edit a name and/or the salutation of
+  someone in our database. Let's first look at our form without the default
+  values added (we've omitted rules and filters for clarity):
+  </p>
+
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      ##########################################################
+      # The user information would normally come from a database
+      $user = array("firstname"=&gt;"Mickey",
+                    "lastname"=&gt;"Mouse",
+                    "sal_id"=&gt;4,
+                    "user_id"=&gt;7);
+      # 'Salutation' comes from a lookup table comprising 
+      # sal_id, sal_text
+      $salutations = array("0"=&gt;"Mr",
+                           "1"=&gt;"Miss", 
+                           "2"=&gt;"Mrs", 
+                           "3"=&gt;"Dr",
+                           "4"=&gt;"Sir");
+      # End of "database-retrieved" information
+      ##########################################################
+
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('header', 'MyHeader', 'Edit username');
+
+      $form-&gt;addElement('hidden', 'user_id');
+      $form-&gt;addElement('select', 'sal_id', 'Address me as:', $salutations);
+      $form-&gt;addElement('text', 'firstname', 'First name:');
+      $form-&gt;addElement('text', 'lastname', 'Last name:');
+
+      $form-&gt;addElement('reset', 'btnClear', 'Clear');
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      if ($form-&gt;validate()) {
+          // Form is validated, then processes the data
+          $form-&gt;freeze();
+          echo "\n&lt;HR&gt;\n";
+      }
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <p>
+  After the <code>require_once</code> statement we initialise two arrays,
+  <code>$user</code> and <code>$salutations</code>, that represent data which would
+  normally be retrieved from a database as associative arrays. This form also
+  introduces two new element types, the <code>hidden</code> and the <code>select</code>
+  elements. We have merely created a <code>hidden</code> element called
+  <code>user_id</code> - presumably a database key - but given it no
+  value at this point. We could submit the value as the third parameter, but 
+  as we shall see we can set the value automatically. The syntax for the
+  <code>select</code> element is very similar
+  to that used for the textbox we saw earlier, but has a fourth parameter
+  which is an array of values for the select box.
+  </p>
+  <p>
+  Our default values have been set in the array <code>$user</code>, which would
+  normally be retrieved from a database as mentioned above. The default values
+  for the form elements
+  can be set with an associative array of
+  <code>element-name=&gt;element-value</code> pairs. This is, of course, precisely how
+  an associated array of values from a database would look, so with the
+  addition of one <code>setDefaults</code> line we can set the defaults for every
+  element on our form
+  (only a few lines shown here for clarity):
+  </p>
+
+  <pre>      // First part of form as previous example
+      $form-&gt;addElement('reset', 'btnClear', 'Clear');
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      if ($form-&gt;validate()) {
+          // Form is validated, then processes the data
+          $form-&gt;freeze();
+      }
+      $form-&gt;setDefaults($user);
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <p>Now when the form is displayed it shows the defaults set from the
+  <code>$user</code> record.
+  </p>
+  <h3 class="guide"><a name="doc_chap5_sect2">Constants</a></h3>
+  <p>
+  Constants can be applied to form elements in a similar way to defaults
+  using <code>setConstants</code>. The difference between defaults and constants is
+  that the former can be changed interactively on the form by the user
+  whereas the latter cannot be changed, either by the user or by a
+  <code>setDefaults</code> call.
+  </p>
+  <h3 class="guide"><a name="doc_chap5_sect3">Processing</a></h3>
+  <p>
+  So far all we have done when the user has clicked on "Submit" is redisplay
+  the form in its frozen state. In reality, of course, we would want to
+  process the values submitted. We could put the code for processing the data
+  immediately after the <code>$form-&gt;validate()</code> call, but that would
+  result in a lot of code unrelated to the form creation function being part
+  of that function. A tidier way is to use <code>process</code> method, which
+  calls a callback function  with the submitted values. An example:
+  </p>
+
+  <pre>      // First part of form as earlier example
+      $form-&gt;addElement('reset', 'btnClear', 'Clear');
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      if ($form-&gt;validate()) {
+          // Form is validated, then processes the data
+          $form-&gt;freeze();
+          $form-&gt;process('process_data', false);
+      }
+      else {
+          $form-&gt;setDefaults($user);
+          $form-&gt;display();
+      }
+
+      function process_data ($values) {
+          echo "&lt;pre&gt;";
+          foreach ($values as $key=&gt;$value) {
+              echo $key."=".$value."&lt;br&gt;";
+          }
+          echo "&lt;/pre&gt;";
+      }
+  ?&gt;</pre>
+
+  <p>
+  We have introduced a few changes here. Firstly, by using an <code>else</code>
+  clause after the validation test we ensure that we only display the form
+  while it is unvalidated. Secondly, we have used the <code>process</code> method
+  to call the user-defined function <code>process_data</code> to process the form
+  data after validation. This function is called with a single parameter
+  which consists of an associated array of <code>element-name=&gt;element-value</code>
+  pairs. The second parameter to <code>process</code> is only used
+  when the user has uploaded files using the form; we shall ignore it for
+  now. Finally, the <code>process_data</code> function simply lists out the data
+  passed to it. Notice that the select control returns the selected item's
+  index rather than the text itself, so this function could very easily be
+  adapted to update the database with the new values. Furthermore, the hidden
+  value <code>user_id</code> has been correctly set too.
+  </p>
+  
+  <h2><a name="doc_chap6">6. </a>Miscellaneous</h2>
+  <h3 class="guide"><a name="doc_chap6_sect1">Introduction</a></h3>
+  <p>
+  This chapter has a number of items which don't fit easily into the
+  preceding chapters but which are still useful to know about when working
+  with HTML_QuickForm.
+  </p>
+  <h3 class="guide"><a name="doc_chap6_sect2">Attributes</a></h3>
+  <p>
+  As we have seen, the first argument to <code>addElement</code> is the type of
+  element we wish to add to our form. The number, type and meaning of 
+  subsequent arguments depend upon the type of element being added, but many
+  elements have an <code>attributes</code> parameter. This allows additional
+  arguments to be placed in the HTML definition of the element, and takes the
+  form of either a string or an array. Two examples should make the use of
+  attributes clearer.
+  </p>
+  <p>
+  The first example simply displays a textarea with a coloured background. As
+  this example requires some style definitions the whole file is shown here:
+  </p>
+
+  <pre>  &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+      &lt;title&gt;Testing PEAR HTML_QuickForm&lt;/title&gt;
+  &lt;style type="text/css"&gt;
+     .ok { background: green; }
+     .warn { background: yellow; }
+     .error { background: red; }
+  &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;?php
+      require_once "HTML/QuickForm.php";
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('textarea', 'MyTextArea', 'Details:', "class=warn");
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      if ($form-&gt;validate()) {
+          $form-&gt;freeze();
+      }
+      $form-&gt;display();
+  ?&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;</pre>
+
+  <p>
+  The first three arguments to <code>addElement</code> are similar to those we have
+  seen before: the type of element, the name of the element, and the caption.
+  The fourth parameter is <code>attributes</code>, and in this case we have simply
+  passed one attribute as a string, setting the class to "warn" which, in
+  turn, sets the background of the text area to yellow.
+  </p>
+  <p>
+  In the second example we change not only the class of the textarea, but
+  also its height and width. In this example, because we want to pass
+  multiple values as attributes we use an associative array:
+  </p>
+
+  <pre>  // First part of form as previous example
+  &lt;?php
+      require_once "HTML/QuickForm.php";
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $attrs = array("class"=&gt;"error",
+                     "rows"=&gt;"10",
+                     "cols"=&gt;"50");
+      $form-&gt;addElement('textarea', 'MyTextArea', 'Details:', $attrs);
+
+      if ($form-&gt;validate()) {
+          // Form is validated, then processes the data
+          $form-&gt;freeze();
+      }
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <h3 class="guide"><a name="doc_chap6_sect3">Further use of attributes</a></h3>
+  <p>
+  
+  One other use of attributes is to pass Javascript code. The following
+  (somewhat  contrived) example causes the form to react immediately to a change
+  in a select box without the user having to click on a submit button (this
+  assumes that the user's browser supports Javascript):
+
+  </p>
+
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      define ("OK", 0);
+      define ("WARNING", 1);
+      define ("ERROR", 2);
+
+      $status_list = array(OK=&gt;"All OK",
+                           WARNING=&gt;"Warning",
+                           ERROR=&gt;"Error");
+
+      $styles = array (OK=&gt;"ok",
+                       WARNING=&gt;"warn",
+                       ERROR=&gt;"error");
+
+      if (array_key_exists("status", $_GET)) {
+          $style = $styles[$_GET['status']];
+      }
+      else {
+          $style = $styles[0];
+      }
+
+      $attrs = array('onchange' =&gt; 
+          "javascript:location.href=
+              '?status='+this.options[this.selectedIndex].value;");
+
+      $form = new HTML_QuickForm('frmTest', 'get', null, null, "class=$style");
+      $form-&gt;addElement('select', 'status', 'Select status:', $status_list, $attrs);
+
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <h3 class="guide"><a name="doc_chap6_sect4">Element groups</a></h3>
+  <p>
+  By default, each element on the form is rendered to a seperate line.
+  Whilst this is a reasonable default, it does make some elements look
+  untidy. In our earlier examples it would be more aesthetic to have the 
+  "Clear" and "Submit" buttons on one line.
+  </p>
+  <p>
+  Element grouping allows us to create a hybrid element which itself consists
+  of multiple individual elements, and then to add this hybrid element to the
+  form as one entity. Consider the following:
+  </p>
+
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $form-&gt;addElement('header', 'MyHeader', 'Testing QuickForm');
+      $form-&gt;addElement('text', 'MyTextBox', 'What is your name?');
+
+      $buttons[] = &amp;HTML_QuickForm::createElement('reset', 'btnClear', 'Clear');
+      $buttons[] = &amp;HTML_QuickForm::createElement('submit', 'btnSubmit', 'Submit');
+      $form-&gt;addGroup($buttons, null, null, '&amp;nbsp;');
+
+      $form-&gt;addRule('MyTextBox', 'Your name is required', 'required');
+
+      if ($form-&gt;validate()) {
+          # If the form validates then freeze the data
+          $form-&gt;freeze();
+      }
+      $form-&gt;display();
+  ?&gt;</pre>
+
+  <p>
+  The first argument to <code>addGroup</code> is an array of the elements to
+  add, which is created on the two line above. The fourth argument is the
+  text to place between the elements, the separator text, which in this case
+  is a simple space.
+  </p>
+
+  <p><b>Note: </b>Do not confuse element groups with HTML groups, such as are often
+  used with radio buttons.</p>
+  
+  <h2><a name="doc_chap7">7. </a>Reference: elements</h2>
+  <h3 class="guide"><a name="doc_chap7_sect1">Introduction</a></h3>
+  <p>
+  This chapter gives a brief overview of each type of element; it is not yet
+  complete and is somewhat terse in places. In some cases the descriptions 
+  are taken straight from the source code. All 
+  arguments other then the type of element (the first argument to 
+  <code>addElement</code>) are optional.
+  </p>
+  <h3 class="guide"><a name="doc_chap7_sect2">advcheckbox</a></h3>
+  <p>
+  Normally a checkbox only passes a value back to the form when it is
+  checked. Unchecked boxes not only pass no value back, but also the checkbox
+  variable does not exist in the values passed to the process routine. The
+  <code>advcheckbox</code> overcomes these problems.
+  </p>
+
+  <pre>  addElement('advcheckbox',
+             string element-name,   // name of advcheckbox
+             string element-label,  // label output before advcheckbox
+             string text,           // label output after advcheckbox
+             mixed attributes,      // string or array of attributes
+             mixed values);         // see below
+  </pre>
+
+  <p>
+  If <code>values</code> is omitted then the value returned is an empty string if 
+  not checked, and '1' if checked. If a string value is passed then the
+  return value is empty string/supplied string, and if an array of two 
+  strings is passed they are taken as the unchecked/checked values to return.
+  </p>
+  
+  <h3 class="guide"><a name="doc_chap7_sect3">button</a></h3>
+  <a name="doc_chap7_pre2"></a>
+
+  <pre>  addElement('button',
+             string element-name,   // name of button
+             string value,          // text of button
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect4">checkbox</a></h3>
+
+  <pre>  addElement('checkbox',
+             string element-name,   // name of checkbox
+             string element-label,  // label output before checkbox
+             string text,           // label output after checkbox
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect5">date</a></h3>
+  <p>
+  This pseudo-element produces multiple select boxes for the user to 
+  input a date and/or time.
+  </p>
+
+  <pre>  addElement('date',
+             string element-name,   // name of date
+             string element-label,  // label output before date
+             array options,         // see below
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <p>
+  <code>options</code> is an array which sets the language, the date/time format,
+  and the minimum and maximum year offered in the select boxes. The format
+  string determines not only the date/time format, but also the number of
+  select boxes shown. The value of the date returned is an associative
+  array, each element key being the relevant format character and the value
+  being the value selected by the user. An example should make this clear:
+  </p>
+
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+      $form = new HTML_QuickForm('frmTest', 'get');
+      $options = array(
+          'language'  =&gt; 'en',
+          'format'    =&gt; 'dMYHi',
+          'minYear'   =&gt; 2001,
+          'maxYear'   =&gt; 2005
+      );
+      $form-&gt;addElement('date', 'mydate', 'Choose date', $options);
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      if ($form-&gt;validate()) {
+          // Form is validated, then processes the data
+          $form-&gt;freeze();
+          $form-&gt;process('process_data', false);
+      }
+      else {
+          $form-&gt;display();
+      }
+
+      function process_data ($values) {
+          echo "&lt;pre&gt;";
+          var_dump($values);
+          echo "&lt;/pre&gt;";
+      }
+  ?&gt;</pre>
+
+  <p>
+  The possible values for the format string are:
+  </p>
+
+  <pre>  D = Short names of days
+  l = Long names of days
+  d = Day numbers
+  M = Short names of months
+  F = Long names of months
+  m = Month numbers
+  Y = Four digit year
+  h = 12 hour format
+  H = 23 hour  format
+  i = Minutes
+  s = Seconds
+  a = am/pm
+  A = AM/PM
+  </pre>
+
+  <p>
+  
+  To set default values for the <code>date</code> element simply create an array
+  and assign the required values to the format string elements defined above.
+  For example, to set the default date to 28th February 2005:
+  
+  </p>
+  
+  <pre>  $form-&gt;setDefaults(array(
+    'my_date' =&gt; array('d'=&gt;28, 'F'=&gt;"February", 'Y'=&gt;2005)));
+  </pre>
+  
+  <p>
+  
+  Here's a complete example that sets the default date to today's date:
+  
+  </p>
+  
+  <pre>  &lt;?php
+    require_once "HTML/QuickForm.php";
+    $form = new HTML_QuickForm('frmTest', 'get');
+    $options = array(
+        'language'  =&gt; 'en',
+        'format'    =&gt; 'dMYHi', 
+        'minYear'   =&gt; 2000, 
+        'maxYear'   =&gt; 2010 
+    ); 
+    $date_defaults = array(
+        'd' =&gt; date('d'),        
+        'M' =&gt; date('M'),
+        'Y' =&gt; date('Y'),
+        'H' =&gt; date('H'),
+        'i' =&gt; date('i')
+    );
+
+    $form-&gt;setDefaults(array('mydate' =&gt; $date_defaults));
+    $form-&gt;addElement('date', 'mydate', 'Choose date', $options);
+    $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+    
+    if ($form-&gt;validate()) {
+        // Form is validated, then processes the data
+        $form-&gt;freeze();
+        $form-&gt;process('process_data', false);
+    }
+    else {
+        $form-&gt;display();
+    }
+     
+    function process_data ($values) {
+        echo "&lt;pre&gt;";
+        var_dump($values);
+        echo "&lt;/pre&gt;";
+    }
+?&gt;</pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect6">element</a></h3>
+  <p>
+  For user-defined elements. This section to be completed.
+  </p>
+  <h3 class="guide"><a name="doc_chap7_sect7">file</a></h3>
+
+  <p><b>Note: </b>The 'file' documentation was submitted by Leonie Price</p>
+
+  <pre>  addElement('file',
+             string element-name,   // name of file element
+             string element_label,  // label for file element
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <p>
+
+  This is a pseudo-element that displays a text box and button, and provides all
+  the supporting functions needed to manage the uploading of files. 
+
+  </p>
+
+  <p><b>Warning: </b>The official documentation records this 
+  element as being depreciated, and may not be supported in future 
+  versions of QuickForm.</p>
+
+  <p>
+  Let's look at an example of the use of the <code>file</code> element:
+  </p>
+
+  <pre>
+  &lt;?php
+      require_once "HTML/QuickForm.php";
+      $uploadForm = new HTML_QuickForm('upload_form', 'post');
+      $path = "/path/to/uploads";
+      $file =&amp; $uploadForm-&gt;addElement('file', 'filename', 'File:');
+      $uploadForm-&gt;addRule('filename', 'You must select a file', 'uploadedfile');
+      $uploadForm-&gt;addElement('submit', 'btnUpload', 'Upload');
+      if ($uploadForm-&gt;validate()) {
+          $uploadForm-&gt;process('process', true);
+      }
+      else {
+          $uploadForm-&gt;display();
+      }
+
+      function process($values) {
+          global $file;
+          if ($file-&gt;isUploadedFile()) {
+              $file-&gt;moveUploadedFile($path);
+          }
+          else {
+              print "No file uploaded";
+          }
+      }
+  ?&gt;</pre>
+
+  <p>
+  There are a couple of points to note in this code. Firstly, the code segment
+  </p>
+
+  <pre>$file =&amp; $uploadForm-&gt;addElement('file', 'filename', 'File:');</pre>
+
+  <p>
+
+  creates a reference called <code>$file</code> to the file being uploaded, which is used later
+  in the <code>process</code> function. 
+
+  </p>
+
+  <p>Secondly, the rule to check that a file has been selected, <code>uploadedfile</code>,
+  exists specifically for the <code>file</code> element. There are other custom rules for the
+  file element:
+
+  </p>
+  <p>
+
+  <code>maxfilesize</code> - sets the maximum file size that may be uploaded. For example:
+
+  </p>
+
+  <pre>  $uploadForm-&gt;addRule('filename', 'The file you selected is too large', 'maxfilesize', 524288);</pre>
+  
+
+  <p>
+
+  <code>mimetype</code> - defines the type of file which may be uploaded. For example:
+
+  </p>
+
+  <pre>  $uploadForm-&gt;addRule('filename', 'Must be a jpeg', 'mimetype', array('image/jpeg', 'image/jpeg') );</pre>
+
+  <p>
+
+  Finally, after validation the process function is called. The final argument,
+  <code>true</code>, indicates that the uploaded file(s) should be processed
+  with the form. 
+
+  </p>
+  <h3 class="guide"><a name="doc_chap7_sect8">header</a></h3>
+
+  <pre>  addElement('header',
+             string element-name,   // name of header
+             string text);          // text of header
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect9">hidden</a></h3>
+
+  <pre>  addElement('hidden',
+             string element-name,   // name of hidden element
+             string value,          // value of hidden element
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <p>
+  </p>
+  <h3 class="guide"><a name="doc_chap7_sect10">hiddenselect</a></h3>
+  <p>
+  This section to be completed.
+  </p>
+  <h3 class="guide"><a name="doc_chap7_sect11">hierselect</a></h3>
+  <p>
+  This pseudo-element dynamically creates two HTML Select elements. The 
+  values available in the second Select element are determined by the value
+  selected in the first. For example, the first box could list countries
+  and the second cities; only the cities which exist in the selected country
+  would be available.
+  </p>
+
+  <pre>  addElement('hierselect',
+             string element-name,   // name of hierselect element
+             string label,          // text label
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  The methods <code>setMainOptions</code> and <code>setSecOptions</code> are used to 
+  populate the two select boxes. The argument to setMainOptions is a single
+  dimension array; the argument to setSecOptions is a two-dimension array, 
+  the first dimension being the key used to associate the secondary option
+  to the appropriate main option. The value returned is a two-element array,
+  the first element being the value of the main option and the second 
+  element being the value of the secondary options. An example should make
+  the use of hierselect easier to understand:
+
+  <pre>  &lt;?php
+      require_once "HTML/QuickForm.php";
+      $form = new HTML_QuickForm('frmTest', 'get');
+
+      $main = array();
+      $secondary = array();
+
+      $main[0] = "England";
+      $main[1] = "Scotland";
+      $main[2] = "USA";
+
+      $secondary[0][0] = "London";
+      $secondary[0][1] = "Manchester";
+      $secondary[0][2] = "Liverpool";
+      $secondary[1][3] = "Edinburgh";
+      $secondary[1][4] = "Glasgow";
+      $secondary[2][5] = "Fort Worth";
+      $secondary[2][6] = "Boston";
+      $secondary[2][7] = "Los Angles";
+
+      $sel =&amp; $form-&gt;addElement('hierselect', 'location', 'Location:');
+      $sel-&gt;setMainOptions($main);
+      $sel-&gt;setSecOptions($secondary);    
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+
+      if ($form-&gt;validate()) {
+          // Form is validated, then processes the data
+          $form-&gt;freeze();
+          $form-&gt;process('process_data', false);
+      }
+      else {
+          $form-&gt;display();
+      }
+
+      function process_data ($values) {
+          echo "&lt;pre&gt;";
+          var_dump($values);
+          echo "&lt;/pre&gt;";
+      }
+  ?&gt;</pre>
+
+  <p><b>Warning: </b>Note that if a default value for the main box is set this does
+  not automatically set the contents for the secondary box</p>
+
+  <p>
+  Set default as follows:
+  </p>
+
+  <pre>      // First part of form as previous example
+      $form-&gt;setDefaults(array('location'=&gt;array(1,4)));
+      $sel =&amp; $form-&gt;addElement('hierselect', 'location', 'Location:');
+      $sel-&gt;setMainOptions($main);
+      $sel-&gt;setSecOptions($secondary);    
+      $form-&gt;addElement('submit', 'btnSubmit', 'Submit');
+      // Rest of form as previous example</pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect12">html</a></h3>
+  <p>
+  This pseudo-element adds raw HTML to a form.
+  </p>
+
+  <pre>  addElement('html',
+             string html-text);     // the HTML to add
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect13">image</a></h3>
+  <p>
+  Adds an image to a form.
+  </p>
+
+  <pre>  addElement('image',
+             string element-name,   // name for image
+             string src,            // source file of image
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect14">link</a></h3>
+  <p>
+  Creates a link.
+  </p>
+
+  <pre>  addElement('link',
+             string element-name,   // name for link
+             string label,          // label for link field
+             string href,           // URI of link
+             string text,           // text to display
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect15">password</a></h3>
+
+  <pre>  addElement('password',
+             string element-name,   // name for password
+             string label,          // label for password field
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect16">radio</a></h3>
+  <p>
+  </p>
+
+  <pre>  addElement('radio',
+             string element-name,   // name for radio button
+             string label,          // text to display before button
+             string text,           // text to display after button
+             int value,             // the value returned
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <p><b>Note: </b>Adding multiple radio buttons with the same element-name will
+  cause them to behave as a group (ie, only one can be selected).</p>
+
+  <p>
+  To select a default radio button from a group, use:
+  </p>
+
+  <pre>  $form-&gt;setDefaults(array(element-name =&gt; value));
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect17">reset</a></h3>
+
+  <pre>  addElement('reset',
+             string element-name,   // name of reset
+             string value,          // text of button
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect18">select</a></h3>
+
+  <pre>  addElement('select',
+             string element-name,   // name of select
+             string label,          // label for select
+             mixed data,            // data for select; see earlier text
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect19">static</a></h3>
+  <p>
+  This element displays static text on the form.
+  </p>
+
+  <pre>  addElement('static',
+             string label,          // label to display
+             string text);          // text to display
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect20">submit</a></h3>
+
+  <pre>  addElement('submit',
+             string element-name,   // name of submit
+             string value,          // text of button
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect21">text</a></h3>
+
+  <pre>  addElement('text',
+             string element-name,   // name of text box
+             string label,          // label
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+  <h3 class="guide"><a name="doc_chap7_sect22">textarea</a></h3>
+
+  <pre>  addElement('textarea',
+             string element-name,   // name of textarea
+             string label,          // label
+             mixed attributes);     // string or array of attributes
+  </pre>
+
+</div>  </div>
+<div id="footer">
+<span class="copyright">
+    ©
+    2006 
+    <a href="http://www.tiger-computing.co.uk/">Tiger Computing Ltd</a>
+  </span>
+&nbsp;
+</div>
+<!-- Start page_ending -->
+</body></html>

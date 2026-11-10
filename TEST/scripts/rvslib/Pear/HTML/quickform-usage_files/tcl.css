@@ -1,0 +1,526 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+DIV{-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+
+div#boxtest {
+    padding: 1em;
+    background: white;
+    width: 64%;
+    font-family: verdana, sans-serif;
+    float: right;
+    margin-right: 1em;
+    margin-top: 1em;
+    display: inline;
+	border: medium solid silver;
+}
+
+div#boxtest h1, h2 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+div#boxtest p {
+    padding: 1em 0;
+}
+
+div#editorial {
+    padding: 1em 0;
+    background: white;
+    /*width: 64%;*/
+    font-family: verdana, sans-serif;
+    /*float: right;*/
+    margin: 0px 10px;
+    /*display: inline;*/
+}
+
+div#editorial h1, h2 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+div#editorial  h3, h4 {
+    padding-top: 1.5em;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+div#editorial .midblock {
+    border-top: thin solid #990033;
+    border-bottom: thin solid #990033;
+    background-color: #eee;
+    margin: 1em 0;
+    padding: 0 15%;
+    text-align: center;
+}
+
+div#editorial p, ul {
+    padding: 1em 0;
+}
+
+div#editorial li {
+    padding: 5px 0;
+}
+
+div#footer {
+  border-color: #990033;
+  border-width: thin;
+  border-style: solid none none none;
+  background-color: white;
+  color: #990033;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: small;
+  padding: 5px 0;
+  margin: 1px 0 2em;
+  clear: both;
+}
+
+div#footer .telephone {
+  float: left;
+  margin-left: 1em;
+  width: 65%;
+}
+
+div#footer .copyright {
+  float: right;
+  margin-right: 1em;
+}
+
+div#fullpage {
+    background: white;
+    font-family: verdana, sans-serif;
+    margin: 0 10%;
+    text-align: left;
+    font-size: 10pt;
+}
+
+div#fullpage code {
+    background-color: #ffd;
+}
+
+div#fullpage h1 {
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin: 1em 0;
+}
+
+div#fullpage h2 {
+    text-align: left;
+    font-family: sans-serif;
+    padding: 0;
+    margin-top: 2em;
+    margin-bottom: 10px;
+}
+
+div#fullpage h3 {
+    text-align: left;
+    font-family: sans-serif;
+    padding: 0;
+    margin-top: 5px;
+}
+
+div#fullpage ol, li {
+    padding: 5px 0;
+    margin-left: 2em;
+}
+
+div#fullpage .caption {
+    background-color: #903;
+    color: #ffd;
+    font-weight: bold;
+}
+
+div#fullpage .input {
+    color: #903;
+}
+
+div#fullpage pre {
+    background-color: #ffd;
+	padding: 0.5em;
+    margin: 1em 0;
+	color: #000000;
+	font-size: 1em;
+    border: thin solid #903;
+}
+
+div#fullpage pre .new {
+    color: red;
+}
+
+div#fullpage p {
+    padding: 5px 0;
+}
+
+/*div#logo {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 26pt;
+    background-color: #ffd;
+    margin-left: 5px;
+}*/
+
+.linuxword {
+    color: #990033;
+    font-weight: 800;
+    font-size: 30pt;
+}
+
+.tagline {
+    background-color: #ffd;
+	font-size: 26pt;
+	font-weight: bold;
+	text-decoration: underline;
+	/*text-align: center;*/
+}
+
+/*
+div#headerbar {
+    background-color: #ffd;
+	height: 66px;
+	position: absolute;
+    margin-top: 0px;
+	top: 0px;
+}
+
+
+div#headerbar_right {
+	float: right;
+    background-color: #ffd;
+	font-size: 26pt;
+	font-weight: bold;
+	padding-top: 5px;
+	padding-right: 1em;
+}
+
+div#headerbar_left {
+    background-color: #ffd;
+	font-size: 26pt;
+	font-weight: bold;
+	padding-top: 0px;
+	vertical-align: top;
+	float: left;
+}
+*/
+
+div .headerbar {
+	margin-left: auto;
+	padding: 0; 
+	width: 100%;
+	background-color: #ffd;
+	/*height: 66px;*/
+	position: absolute;
+	margin: 0px;
+	top: 0px;
+}
+
+/*table .headerbar {
+	padding: 0; 
+	width: 100%;
+	*/background-color: #ffd;
+}
+
+div .logo {
+	border: none;
+	float: left;
+	margin: 0;
+	padding: 0;
+	/*width: 240px;*/
+}
+
+div .tagline {
+	background-color: #ffd;
+	border: none;
+	float: right;
+	font-size: 26pt;
+	font-weight: bold;
+	margin: 0;
+}
+
+/*
+div .menubar {
+	background-color: #990033;
+	color: #ffd;
+	font-family: sans-serif;
+	font-size: 9.5pt;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	padding: 0; 
+	width: 96%;
+}
+*/
+
+div#logo_container {
+    background-color: #ffd;
+    font-family: sans-serif;
+    font-size: 26pt;
+    font-weight: bold;
+    height: 70px;
+    left: 0px;
+    /*margin-top: 5px;*/
+    padding-left: 25px;
+	padding-top: 5px;
+    position: absolute;
+	vertical-align: top;
+    top: 0px;
+    /*width: 100%;*/
+}
+
+div#tagline_container {
+    /*float: right;*/
+    font-weight: bold;
+    font-size: 24pt;
+    font-style: italic;
+    /*margin-right: 5em;*/
+    margin-top: 0px;
+	margin-left: 20px;
+	/*text-align: center;*/
+}
+
+div#main {
+    top: 0;
+}
+
+div#menubar {
+	background-color: #990033;
+    color: #ffd;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 9.5pt;
+    left: 0;
+    /*margin-top: 68px;*/
+    height: 27px;
+    padding-top: 4px;
+    width: 100%;
+    vertical-align: middle;
+}
+
+div#menubar .currentlink { 
+    font-weight: normal;
+}
+
+div#menubar .date {
+    float: right;
+    color: white;
+}
+
+div#menubar a { 
+    text-decoration: none;
+    color: #ffd;
+}
+
+div#menubar a:active { 
+    text-decoration: underline;
+}
+
+div#menubar a:hover { 
+    text-decoration: underline;
+}
+
+/*div#sidebar {*/
+.sidebar {
+    width: 30%;
+    background: #ffd;
+    padding: 1em 1em;
+    /*float: left;
+    display: inline;*/
+    font-family: sans-serif;
+    text-align: left;
+    font-weight: bold;
+    vertical-align: top;
+}
+
+div#sidebar h2, h3, h4 {
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 0;
+}
+
+div#sidebar li {
+    font-family: sans-serif;
+    font-size: normal;
+    padding-top: 0;
+    margin-left: 1em;
+}
+
+.lhcolumn_header {
+	color: #903;
+	font-size: 16pt;
+	text-align: center;
+}
+
+div.column1of3 {
+  border: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 60%;
+}
+
+div.column2of3 {
+  border: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+}
+
+div.column3of3 {
+  border: none;
+  float: right;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+}
+
+div.left-column {
+  border: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 40%;
+  font-weight: bold;
+  text-align: right;
+}
+
+div.right-column {
+  border: none;
+  float: right;
+  margin: 0;
+  padding: 0;
+  width: 58%;
+  font-weight: normal;
+  text-align: left;
+}
+
+div.space-line {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+div.table-row {
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  padding: 0; 
+  width: 96%;
+}
+
+div.table-row-tipsheets {
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  padding: 0; 
+  width: 96%;
+  border-width: thin;
+  border-color: silver;
+  border-style: solid none none none;
+}
+
+.benefits {
+  margin-top: 2ex;
+  font-weight: bold;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+.emp {
+    color: #903;
+    font-weight: bold;
+}
+
+.sidebar_link {
+    font-size: 12;
+    font-family: sans-serif;
+}
+
+.sidebar_text {
+    text-align: left;
+    font-weight: bold;
+    margin-top: 1em;
+    font-size: 13;
+}
+
+.sidebar_text li {
+    margin-top: 2px;
+}
+
+.testimonial_from {
+    text-align: right;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12;
+}
+
+.testimonial_text {
+    /*margin-top: 2em;
+    font-size: 12;*/
+}
+
+.testimonial_text p {
+    /*padding-top: 10px;*/
+}
+
+.table-caption {
+  background: transparent;
+  color: #3333cc;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+  margin: 0;
+  padding: 1em 0;
+  text-align: center;
+  width: auto;
+}
+
+.testimonial_letter {
+  border: thin solid black;
+  margin-top: 1em;
+}
+
+TABLE.kae { padding: 2px; border-width: 2px; border-color: black; border-style: double} 
+
+TR			{ }
+TR.odd 		{ background: rgb(245,240,240) ; vertical-align: top }
+TR.even 	{ background: rgb(228,223,223) ; vertical-align: top }
+TR.warning 	{ background: yellow ; vertical-align: top }
+TR.alert 	{ background: red ; vertical-align: top }
+TR.ok		{ background: rgb(0,255,0) ; vertical-align: top }
+
+P.copyright { font-size: small }
+
+body, ul, td, th {
+	font-family: verdana,arial,helvetica,sans-serif;
+	font-size: 85%;
+}
+
+table.editorlist {
+    border: thin solid #903;
+	font-size: 12pt;
+}
+
+.editorlist th {
+    background-color: #903;
+    color: #ffd;
+    /*padding-left: 1em;*/
+	text-align: center;
+}
+
+.editorlist li {
+	font-size: 10pt;
+}
+
+.filterbutton {
+    border: thin solid black;
+}

@@ -1,0 +1,31 @@
+<?php
+$aLang['The form was not submitted for the following reasons:'] = 'Form aþaðýdaki nedenlerden dolayý gönderilemedi::';
+$aLang['Please click'] = 'Lütfen týklayýn';
+$aLang['here'] = 'buraya';
+$aLang['to return to the form and try again.'] = 'forma geri dönüp tekrar denemek için.';
+$aLang['Missing:'] = 'Eksik:';
+$aLang['Could not find online form configuration file ID='] = 'Online form konfigürasyon dosyasý bulunamadý. Dosya ID=';
+$aLang[' for RV SiteBuilder formmail.'] = ' RV SiteBuilder formmail için.';
+$aLang['I NEED VALID RECIPIENT EMAIL ADDRESS'] = 'ALICI EMAIL ADRESI GEREKLI';
+$aLang['TO CONTINUE</b>'] = 'DEVAM ETMEK ICIN</b>';
+$aLang['your <b>email address'] = 'sizin <b>email adresiniz';
+$aLang['</b> is invalid.'] = '</b> geçersiz.';
+$aLang['your <b>zip/postal code</b> is invalid'] = 'sizin <b>posta kodunuz</b> geçersiz';
+$aLang['your <b>phone number</b> is invalid'] = 'sizin <b>telefon numaranýz</b> geçersiz';
+$aLang['your <b>fax number</b> is invalid'] = 'sizin <b>fax numaranýz</b> geçersiz';
+$aLang['Thank you for your submission'] = 'Gönderdiðiniz için teþekkürler';
+$aLang['This form is powered by '] = 'Form saðlayýcý ';
+$aLang['Please use your browser back button to return to the form and try again.'] = 'Lütfen geri dönüp tekrar denyiniz.';
+$aLang['This form is powered by'] = 'Form saðlayýcý';
+$aLang['You are using from a <b>banned email address.</b>'] = 'Engellenmiþ bir <b>email adresi</b> kullandýnýz';
+$aLang['You are coming from an'] = 'Geldiðiniz yer';
+$aLang['You are coming from an <b>unauthorized domain.</b>'] = 'Geldiðiniz yer <b>geçersiz bir domain.</b>';
+$aLang['Spam mail detected.'] = 'Spam mail algýlandý.';
+$aLang['Your message never be sent.'] = 'Mesajýnýz gönderilmedi.';
+$aLang['If you accidentally get this error, please contact us for the resolution.'] = 'Bu hatayý yanlýþlýkla aldýysanýz, bizimle temasa geçiniz.';
+$aLang['This was an INVALID submission. You have acted like a spambot!'] = 'Geçersiz gönderim!';
+$aLang['Cannot connect to sendmail server'] = 'Sendmail sunucusuna baðlanýlamadý.';
+$aLang['Sending email from'] = 'Gönderen email adresi';
+$aLang['to'] = 'alýcý';
+$aLang['failed'] = 'baþarýsýz';
+?>

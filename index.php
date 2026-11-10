@@ -1,0 +1,101 @@
+<?php echo '<?xml version="1.0" encoding="iso-8859-15" ?>'; ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140807434-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-140807434-1');
+</script>
+
+<title>Welcome to HingePoint Consulting</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset =iso-8859-15" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="Verdana.css" type="text/css" />
+<link rel="stylesheet" href="2d3f7d1edb3cc1774328c04dfe8010e4.css" type="text/css" />
+<link rel="stylesheet" href="pathway.css" type="text/css" />
+
+
+<script language="JavaScript" type="text/javascript" src="rvsincludefile/rvsnavigator.js"></script>
+
+
+<script language="JavaScript" type="text/javascript" src="js/layersmenu-library.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/layersmenu.js"></script>
+
+<script language="JavaScript" type="text/javascript" src="rvsincludefile/rvscustomopenwindow.js"></script>
+
+
+
+</head>
+
+<body>
+  <?php include("header_index.php"); ?>
+
+  <table cellpadding="0" cellspacing="0" width="1000" align="Center" bgcolor="#f2e2fa" >
+    <tr>
+      <td align="left" valign="top"><?php include("menu.php"); ?></td>
+ 			<td width="30"></td>
+	    <td valign="top">
+        <table cellpadding="0" cellspacing="0" border=0>
+          <tr>
+            <td align="left"><br><p><b>Home</b></p><br></td>
+          </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0"  border=0>
+          <tr>
+            <td>
+              <!--begin body content-->
+              <p align="center"><font size="4" face="Arial"><strong><em>Welcome to HingePoint Consulting<br><br><br></em></strong></font></p>
+              <img border="0" src="images/Toronto.jpg" align="right" hspace="0" width="200" height="170">
+              <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="58%" id="AutoNumber2" height="179">
+                <tr>
+                  <td width="100%" height="170" valign="top">
+                    <p align="left">Canada is a developed country with abundant natural resources, advanced technologies and open and developed capital market. Its financial system earned great recognitions during the recent global financial crisis.</p>
+                    <p align="left">China has become one of the most important markets over the world. Accumulated significant amount of capital, it has increasingly looked abroad for energies, resources and new technologies to fuel its fast growing economy.</p>
+                    
+                  </td>
+                </tr>
+              </table><br><br>
+              <img border="0" src="images/Shanghai.jpg" align="left" hspace="0" width="200" height="170">
+              <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="60%" id="AutoNumber3">
+                <tr>
+                  <td width="40"></td>
+                 <td>
+                   <p align="left">There are tremendous business opportunities for organizations in China and Canada to grow and expand into each other's markets.</p>
+                    <p align="left">Do you want to build business relationships and/or find strategic partners in China? Are you looking into the multicultural Chinese market here in Canada?</p>
+                    <p align="left">Are you established in China and wanting to expand internationally? Do you plan to enter into North America's capital markets?</p>
+                    <p align="left">Let HingePoint Consulting help you&#8230;</p>
+                  </td>
+                </tr>
+              </table><br><br><br><br>
+              <!--end body content-->
+            </td>
+          </tr>
+        </table>
+      </td>
+  		<td width="40"></td>
+      <td width="205" valign="top">
+        <table cellspacing="0" width="90%">
+          <tr>
+            <td align="right"><p><br><?php include("rvsincludefile/icon_index.html"); ?></p></td>
+          </tr>
+        </table><br>
+        <?php include("right.php"); ?>
+      </td>
+    </tr>
+  </table>
+
+  <?php include("footer.php"); ?>
+
+</body>
+</html>

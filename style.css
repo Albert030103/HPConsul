@@ -1,0 +1,74 @@
+.company{
+	font-family: verdana,arial,helvetica;
+	font-size: 15px;
+	color: #FFFFFF;
+	font-weight:bold;
+}
+
+.slogan {
+	font-family: verdana,arial,helvetica;
+	font-size: 11px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.magin {
+	padding:5px;
+}
+table { 
+	font-size:100%;
+} 
+body { font-size:76%;
+	margin:0;
+	padding:0;
+	background-repeat:repeat-x;
+	background-color:#003300;color:#003300; background-position-y:50%
+}
+
+a:link {color: #0085CE; text-decoration: none;}
+a:visited {color: #0085CE; text-decoration: none;}
+a:hover {color: #0D4E72; text-decoration: underline;}
+a:active {color: #0D4E72; text-decoration: underline;}
+
+.bgmenu{ background-color:#0D4E72;}
+.bgnav{ background-color:#0D4E72;}
+.bgbody{ background-color:#F0F0F0}
+.bgtop{background-image: url('images/bgtop.jpg');}
+.bgbottom{background-image: url('images/bgbottom.jpg');}
+.ex_l{background-image: url('images/ex_l.jpg');}
+.ex_l_1{background-image: url('images/ex_l_1.jpg');}
+.ex_t{background-image: url('images/ex_t.jpg');}
+.menu_t{background-image: url('images/menu_t.jpg');}
+.menu_b{background-image: url('images/menu_b.jpg');}
+.menu_l{background-image: url('images/menu_l.jpg');}
+.menu_r{background-image: url('images/menu_r.jpg');}
+
+.mytooltip1 {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+	border-width:thin; 
+	border-style:none;
+
+	}
+
+/* Tooltip texttransparent; */
+.mytooltip1 .tooltiptext1 {
+    visibility: hidden;
+    width: 100px;
+    background-color:#737CA1;
+    color: #fff;
+    padding: 5px 5px 5px 5px;
+    border-radius: 4px;
+     font-size: 12px;    
+     position: absolute;
+     top: 100%;
+    left: 50%;
+    margin-left: -50px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.mytooltip1:hover .tooltiptext1 {
+    visibility: visible;
+}

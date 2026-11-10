@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Title      : Night Vision
+Version    : 1.0
+Released   : 20080119
+Description: Three-column blog design with the third column allocated for ads. Features Web 2.0 design ideal for 1024x768 resolutions.
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="content-type" content="{%MetaCharset%}" />
+<meta name="description" content="{%MetaDescription%}" />
+<meta name="keywords" content="{%MetaKeywords%}" />
+<title>{%MetaTitle%}</title>
+
+<link href="images/default.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<!-- start header -->
+<div id="wrapper">
+<div id="header">
+<div id="logo">
+<h1><a href="index.php">{%WebsiteName%}</a></h1>
+<p>{%WebsiteSlogan%}</p>
+</div>
+<div id="rss"> </div>
+<div id="search"><form id="searchform" enctype="application/x-www-form-urlencoded" method="get"><fieldset><input id="s" name="search" size="15" type="text" /> <input id="x" type="submit" value="Search" /> </fieldset> </form></div>
+</div>
+<!-- end header --><!-- star menu -->
+<div id="menu">
+<ul>
+{%menu_start=1%}
+<li><a href="{%menu_href%}">{%menu_display%}</a></li>
+{%menu_end=1%} 
+</ul>
+</div>
+<!-- end menu --><!-- start page -->
+<div id="page"><!-- start ads --><!-- end ads --><!-- start content -->
+<div id="content">
+<div class="post">
+<div class="title">
+<h2>{%name%}</h2>
+</div>
+<div class="entry">{%content%}
+<p> </p>
+</div>
+</div>
+</div>
+<!-- end content --><!-- start sidebar -->
+<div id="sidebar">
+<ul>
+<li id="categories">
+<h2>News</h2>
+{%news%} </li>
+</ul>
+</div>
+<!-- end sidebar --></div>
+<!-- end page --><!-- start footer -->
+<div id="footer">
+<p class="legal">{%WebsiteFooter%}</p>
+</div>
+</div>
+<!-- end footer -->
+</body>
+</html>
