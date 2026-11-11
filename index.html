@@ -127,7 +127,7 @@ function carousel() {
                         <td nowrap="nowrap">
                           <div class="subframe">
                             <div id="refL3" class="item"><a href="The-Company.php" onmouseover="LMPopUp('L2', true);" target="_self" ><span>&nbsp;The Company&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></div>
-                            <div id="refL4" class="item"><a href="Management-Team.php" onmouseover="LMPopUp('L2', true);" target="_self" ><span>&nbsp;Management Team&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></div>
+                            <div id="refL4" class="item"><a href="Management-Team.html" onmouseover="LMPopUp('L2', true);" target="_self" ><span>&nbsp;Management Team&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a></div>
                           </div>
                         </td>
                       </tr>
@@ -223,7 +223,35 @@ function carousel() {
       <td width="205" valign="top">
         <table cellspacing="0" width="90%">
           <tr>
-            <td align="right"><p><br><?php include("rvsincludefile/icon_index.html"); ?></p></td>
+            <td align="right"><p><br>
+                <table cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<script type="text/javascript">
+var SubjectLine='Check out the '+top.document.title+'';
+var BodyText='I thought you might be interested in the '+top.document.title+' You can view it at '+top.location.href+'';
+var Message='<a class="contact" href="mailto:?SUBJECT='+SubjectLine+'&BODY='+BodyText+'">'+'<input type="image" src="../images/pfbe.gif" title="Email a Page to a Friend" alt="Email a Page to a Friend"></a>';
+var MessageIE ='<a href="mailto:?SUBJECT='+SubjectLine+'&BODY='+BodyText+'">'+'  <img src="../images/pfbe.gif" title="Email a Page to a Friend" alt="Email a Page to a Friend" width="22" height="22"  hspace="4" style="cursor:pointer" border="0">    '+'</a>';
+if(document.all) { document.write(MessageIE); }
+else { document.write(Message); };
+</script>
+</td>
+<td>
+<input type="image" src="../images/ppbe.gif" width="22" height="22" hspace="4" title="Print this page" alt="Print this page" onclick="window.print();return false;">
+</td>
+<td>
+<input type="image" src="../images/afbe.gif" width="22" height="22"  hspace="4" title="Add to Favorite" alt="Add to Favorite"onclick="
+            if(window.sidebar){
+                 window.sidebar.addPanel(document.title,location.href,'');
+             }else if(window.external){
+                 window.external.AddFavorite(location.href,document.title);
+             }else if(window.opera&&window.print)    {
+                     return true;
+             }">
+</td>
+</tr>
+</table>
+            </p></td>
           </tr>
         </table><br>
 
